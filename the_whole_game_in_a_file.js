@@ -5,22 +5,22 @@ var buttonpressed = 0; //kiem tra xem bat ki cai gi da duoc bam chua
 var px = canvassize / 2, //toa do x cua hinh luc giac giua
   py = canvassize / 2; //toa do y cua hinh luc giac giua
 var won = 0; // kiem tra xem da thang chua
-let myfont; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+let myfont; 
 var hesor = 6 / 8,
   hesog = 4 / 8,
-  hesob = 4 / 8; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  hesob = 4 / 8; 
 var bgr = 150,
   bgg = 150,
   bgb = 150,
   offsetr = 20,
   offsetg = 20,
-  offsetb = 20; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var giatoc = 99 / 100; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var layers; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var distx, disty; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var startsp = 2.5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var chosen; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var button = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  offsetb = 20; 
+var giatoc = 99 / 100; 
+var layers; 
+var distx, disty; 
+var startsp = 2.5; 
+var chosen; 
+var button = 0; 
 var pos = [
   [px = canvassize / 2, py = canvassize / 2],
   [px = canvassize / 2, py = canvassize / 2],
@@ -29,7 +29,7 @@ var pos = [
   [px = canvassize / 2, py = canvassize / 2],
   [px = canvassize / 2, py = canvassize / 2],
   [px = canvassize / 2, py = canvassize / 2]
-]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+]; 
 var last = [
   [px = canvassize / 2, py = canvassize / 2],
   [px = canvassize / 2, py = canvassize / 2],
@@ -39,7 +39,7 @@ var last = [
   [px = canvassize / 2, py = canvassize / 2],
   [px = canvassize / 2, py = canvassize / 2]
 ]
-var playtime = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+var playtime = 0; 
 var val = [
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
@@ -56,7 +56,7 @@ var speed = [
   [0, 0],
   [0, 0],
   [0, 0]
-]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+]; 
 var shadecolor = [
   [+offsetr * 2, +offsetg * 2, +offsetb * 2],
   [+offsetr, +offsetg, +offsetb],
@@ -64,9 +64,9 @@ var shadecolor = [
   [-offsetr * 2, -offsetg * 2, -offsetb * 2],
   [-offsetr, -offsetg, -offsetb],
   [+offsetr, +offsetg, +offsetb]
-]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-let chose = [0, 0, 0, 0, 0, 0, 0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-let clipcnt = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+]; 
+let chose = [0, 0, 0, 0, 0, 0, 0]; 
+let clipcnt = 0; 
 let arr = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -87,7 +87,7 @@ let arr = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+]; 
 let arr1 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -108,16 +108,13 @@ let arr1 = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+]; 
 
-var clipped = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-var isclipped = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+var clipped = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; 
+var isclipped = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]; 
 
-let mySound; /* Noi that la em cung khong nho em viet cai gi vao day nua */
 function Init() {
-  mySound = loadSound('uwu.mp3'); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  mySound.setVolume(100); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  mySound.play(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+
   let cnt = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -138,54 +135,54 @@ function Init() {
   ]
   for (let j = 0; j <= 5; j++) {
     while (1) {
-      arr[0][j] = floor(random(1, 9)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+      arr[0][j] = floor(random(1, 9)); 
       if (cnt[0][arr[0][j]] == 0) {
-        cnt[0][arr[0][j]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-        break; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        cnt[0][arr[0][j]] = 1; 
+        break; 
       }
     }
   }
-  arr[1][1] = arr[0][4]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[2][2] = arr[0][5]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[3][3] = arr[0][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[4][4] = arr[0][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[5][5] = arr[0][2]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[6][0] = arr[0][3]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[1][arr[1][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[2][arr[2][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[3][arr[3][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[4][arr[4][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[5][arr[5][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[6][arr[6][0]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  arr[1][1] = arr[0][4]; 
+  arr[2][2] = arr[0][5]; 
+  arr[3][3] = arr[0][0]; 
+  arr[4][4] = arr[0][1]; 
+  arr[5][5] = arr[0][2]; 
+  arr[6][0] = arr[0][3]; 
+  cnt[1][arr[1][1]] = 1; 
+  cnt[2][arr[2][1]] = 1; 
+  cnt[3][arr[3][1]] = 1; 
+  cnt[4][arr[4][1]] = 1; 
+  cnt[5][arr[5][1]] = 1; 
+  cnt[6][arr[6][0]] = 1; 
   for (let i = 1; i <= 6; i++) {
     while (1) {
-      arr[i][i - 1] = floor(random(1, 9)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+      arr[i][i - 1] = floor(random(1, 9)); 
       if (cnt[i][arr[i][i - 1]] == 0) {
-        cnt[i][arr[i][i - 1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-        break; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        cnt[i][arr[i][i - 1]] = 1; 
+        break; 
       }
     }
   }
-  arr[2][3] = arr[1][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[3][4] = arr[2][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[4][5] = arr[3][2]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[5][0] = arr[4][3]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[6][1] = arr[5][4]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  arr[1][2] = arr[6][5]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[2][arr[2][3]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[3][arr[3][4]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[4][arr[4][5]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[5][arr[5][0]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[6][arr[6][1]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  cnt[1][arr[1][2]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  arr[2][3] = arr[1][0]; 
+  arr[3][4] = arr[2][1]; 
+  arr[4][5] = arr[3][2]; 
+  arr[5][0] = arr[4][3]; 
+  arr[6][1] = arr[5][4]; 
+  arr[1][2] = arr[6][5]; 
+  cnt[2][arr[2][3]] = 1; 
+  cnt[3][arr[3][4]] = 1; 
+  cnt[4][arr[4][5]] = 1; 
+  cnt[5][arr[5][0]] = 1; 
+  cnt[6][arr[6][1]] = 1; 
+  cnt[1][arr[1][2]] = 1; 
   for (let i = 1; i <= 6; i++) {
     for (let j = i; j <= i + 2; j++) {
-      let k = (j + 2) % 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+      let k = (j + 2) % 6; 
       while (1) {
-        arr[i][k] = floor(random(1, 9)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        arr[i][k] = floor(random(1, 9)); 
         if (cnt[i][arr[i][k]] == 0) {
-          cnt[i][arr[i][k]] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          break; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          cnt[i][arr[i][k]] = 1; 
+          break; 
         }
       }
     }
@@ -193,194 +190,194 @@ function Init() {
 }
 
 function initialize() {
-  won = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  playtime = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  won = 1; 
+  playtime = 0; 
   for (let i = 0; i < 7; i++) {
-    let rtt = random(2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    speed[i][0] = cos(PI * rtt) * startsp; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    pos[i][0] = canvassize / 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    last[i][0] = pos[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    speed[i][1] = sin(PI * rtt) * startsp; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    pos[i][1] = canvassize / 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    last[i][1] = pos[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+    let rtt = random(2); 
+    speed[i][0] = cos(PI * rtt) * startsp; 
+    pos[i][0] = canvassize / 2; 
+    last[i][0] = pos[i][0]; 
+    speed[i][1] = sin(PI * rtt) * startsp; 
+    pos[i][1] = canvassize / 2; 
+    last[i][1] = pos[i][1]; 
   }
-  clipcnt = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  // bgb=150; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  // bgr=150; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  // bgg=150; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; i <= 14; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    for (let j = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ j <= 9; /* Noi that la em cung khong nho em viet cai gi vao day nua */ j++) {
-      arr1[i][j] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-      arr[i][j] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  clipcnt = 0; 
+  // bgb=150; 
+  // bgr=150; 
+  // bgg=150; 
+  for (let i = 0; i <= 14;  i++) {
+    for (let j = 0;  j <= 9;  j++) {
+      arr1[i][j] = 0; 
+      arr[i][j] = 0; 
     }
   }
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 7; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    clipped[i] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    isclipped[i] = 10; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  for (let i = 0;  i <= 7;  i++) {
+    clipped[i] = 0; 
+    isclipped[i] = 10; 
   }
 }
 
 function setup() {
-  createCanvas(canvassize, canvassize); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  frameRate(60); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  myfont = loadFont('thefont.otf'); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  textFont(myfont); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  initialize(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  Init(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  isclipped[0] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  button = 250; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  bgg = 220; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  clipcnt = 7; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  won = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  createCanvas(canvassize, canvassize); 
+  frameRate(60); 
+  myfont = loadFont('thefont.otf'); 
+  textFont(myfont); 
+  initialize(); 
+  Init(); 
+  isclipped[0] = 0; 
+  button = 250; 
+  bgg = 220; 
+  clipcnt = 7; 
+  won = 0; 
 }
 
 function generate_() {
-  hexa(px, py); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    var dist = sqrt(3) / 2 * size + 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    hexa(px + dist * cos(PI / 6 + PI / 3 * i) * 2, px + dist * sin(PI / 6 + PI / 3 * i) * 2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  hexa(px, py); 
+  for (let i = 0;  i <= 5;  i++) {
+    var dist = sqrt(3) / 2 * size + 5; 
+    hexa(px + dist * cos(PI / 6 + PI / 3 * i) * 2, px + dist * sin(PI / 6 + PI / 3 * i) * 2); 
   }
 }
 
 function hexa(tx, ty) {
-  push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  translate(tx, ty); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = size * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = size * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = size * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = size * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(bgr - 20, bgg - 20, bgb - 20); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    line(0, 0, px1, py1); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(5); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(shadecolor[i][0] + bgr, bgg + shadecolor[i][1], bgb + shadecolor[i][2]); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    line(px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  push(); 
+  translate(tx, ty); 
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = size * cos(PI / 3 * i); 
+    let py1 = size * sin(PI / 3 * i); 
+    let px2 = size * cos(PI / 3 * (i + 1)); 
+    let py2 = size * sin(PI / 3 * (i + 1)); 
+    strokeWeight(2); 
+    stroke(bgr - 20, bgg - 20, bgb - 20); 
+    line(0, 0, px1, py1); 
+    strokeWeight(5); 
+    stroke(shadecolor[i][0] + bgr, bgg + shadecolor[i][1], bgb + shadecolor[i][2]); 
+    line(px1, py1, px2, py2); 
   }
-  pop(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  pop(); 
 }
 
 function hexanoi(tx, ty, cac, id) {
-  push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  translate(tx, ty); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  let distt = sqrt(3) * size / 3; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = size * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = size * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = size * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = size * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(bgr + cac, bgg + cac, bgb + cac); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    triangle(0, 0, px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  push(); 
+  translate(tx, ty); 
+  let distt = sqrt(3) * size / 3; 
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = size * cos(PI / 3 * i); 
+    let py1 = size * sin(PI / 3 * i); 
+    let px2 = size * cos(PI / 3 * (i + 1)); 
+    let py2 = size * sin(PI / 3 * (i + 1)); 
+    fill(bgr + cac, bgg + cac, bgb + cac); 
+    triangle(0, 0, px1, py1, px2, py2); 
   }
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = size * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = size * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = size * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = size * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(bgr - 20 + cac, bgg - 20 + cac, bgb - 20 + cac); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    line(0, 0, px1, py1); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(5); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(bgr + shadecolor[(i + 3) % 6][0] + cac, bgg + shadecolor[(i + 3) % 6][1] + cac, bgb + shadecolor[(i + 3) % 6][2] + cac); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    line(px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = size * cos(PI / 3 * i); 
+    let py1 = size * sin(PI / 3 * i); 
+    let px2 = size * cos(PI / 3 * (i + 1)); 
+    let py2 = size * sin(PI / 3 * (i + 1)); 
+    strokeWeight(2); 
+    stroke(bgr - 20 + cac, bgg - 20 + cac, bgb - 20 + cac); 
+    line(0, 0, px1, py1); 
+    strokeWeight(5); 
+    stroke(bgr + shadecolor[(i + 3) % 6][0] + cac, bgg + shadecolor[(i + 3) % 6][1] + cac, bgb + shadecolor[(i + 3) % 6][2] + cac); 
+    line(px1, py1, px2, py2); 
   }
-  textAlign(CENTER); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  textSize(15); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (var i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = distt * cos(PI / 3 * i + PI / 6) + 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = distt * sin(PI / 3 * i + PI / 6) + 10; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    // console.log(id,arr[id]); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(bgr + 20 + cac, bgg + 20 + cac, bgb + 20 + cac); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(bgr + 20 + cac, bgg + 20 + cac, bgb + 20 + cac); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    // console.log(arr[id]); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    text(arr[id][i], px1, py1); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(5); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  textAlign(CENTER); 
+  textSize(15); 
+  for (var i = 0;  i <= 5;  i++) {
+    let px1 = distt * cos(PI / 3 * i + PI / 6) + 1; 
+    let py1 = distt * sin(PI / 3 * i + PI / 6) + 10; 
+    // console.log(id,arr[id]); 
+    strokeWeight(2); 
+    fill(bgr + 20 + cac, bgg + 20 + cac, bgb + 20 + cac); 
+    stroke(bgr + 20 + cac, bgg + 20 + cac, bgb + 20 + cac); 
+    // console.log(arr[id]); 
+    text(arr[id][i], px1, py1); 
+    strokeWeight(5); 
   }
-  pop(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  pop(); 
 }
 
 function getdist(x1, y1, x2, y2) {
-  return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)); 
 }
 
 function slowdown(i) {
-  speed[i][0] *= giatoc; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  speed[i][1] *= giatoc; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  // speed[i][0]+=trux; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  // speed[i][1]+=truy; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  speed[i][0] *= giatoc; 
+  speed[i][1] *= giatoc; 
+  // speed[i][0]+=trux; 
+  // speed[i][1]+=truy; 
   // if(i==1)
   // console.log(speed[i])
 }
 
 
 function shadow(tx, ty) {
-  push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  strokeWeight(0); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  translate(tx, ty); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = (size - 4) * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = (size - 4) * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = (size - 4) * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = (size - 4) * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(0, 0, 0, 80); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    triangle(0, 0, px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  push(); 
+  strokeWeight(0); 
+  translate(tx, ty); 
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = (size - 4) * cos(PI / 3 * i); 
+    let py1 = (size - 4) * sin(PI / 3 * i); 
+    let px2 = (size - 4) * cos(PI / 3 * (i + 1)); 
+    let py2 = (size - 4) * sin(PI / 3 * (i + 1)); 
+    fill(0, 0, 0, 80); 
+    triangle(0, 0, px1, py1, px2, py2); 
   }
-  pop(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  pop(); 
 }
-var totfr = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+var totfr = 0; 
 var notpressedyet = 1,
   theone = 10,
-  ddx, ddy, notchosenyet = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  ddx, ddy, notchosenyet = 1; 
 
 function clip(id, des) {
-  speed[id] = [0, 0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i < 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    arr1[des][i] = arr[id][i]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  speed[id] = [0, 0]; 
+  for (let i = 0;  i < 6;  i++) {
+    arr1[des][i] = arr[id][i]; 
   }
 }
 
 function unclip(des) {
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i < 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    arr1[des][i] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  for (let i = 0;  i < 6;  i++) {
+    arr1[des][i] = 0; 
   }
 }
 
 function hexagon_hole() {
-  translate(px, py); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  let distt = sqrt(3) * size / 3; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = size * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = size * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = size * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = size * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let fillcol = 60; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(fillcol, fillcol, fillcol); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(fillcol, fillcol, fillcol); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    triangle(0, 0, px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  translate(px, py); 
+  let distt = sqrt(3) * size / 3; 
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = size * cos(PI / 3 * i); 
+    let py1 = size * sin(PI / 3 * i); 
+    let px2 = size * cos(PI / 3 * (i + 1)); 
+    let py2 = size * sin(PI / 3 * (i + 1)); 
+    let fillcol = 60; 
+    fill(fillcol, fillcol, fillcol); 
+    stroke(fillcol, fillcol, fillcol); 
+    triangle(0, 0, px1, py1, px2, py2); 
   }
 }
 
 function animation(time) {
-  push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  translate(0, 0); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  let time1 = min(time, size); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  hexagon_hole(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  push(); 
+  translate(0, 0); 
+  let time1 = min(time, size); 
+  hexagon_hole(); 
 }
 
 function hexathing() {
-  push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  translate(px, py); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  let distt = sqrt(3) * size / 3; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-  for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-    let px1 = (size - 3) * cos(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py1 = (size - 3) * sin(PI / 3 * i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let px2 = (size - 3) * cos(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let py2 = (size - 3) * sin(PI / 3 * (i + 1)); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let fillcol = 60; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(150, 210, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(150, 210, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(1); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  push(); 
+  translate(px, py); 
+  let distt = sqrt(3) * size / 3; 
+  for (let i = 0;  i <= 5;  i++) {
+    let px1 = (size - 3) * cos(PI / 3 * i); 
+    let py1 = (size - 3) * sin(PI / 3 * i); 
+    let px2 = (size - 3) * cos(PI / 3 * (i + 1)); 
+    let py2 = (size - 3) * sin(PI / 3 * (i + 1)); 
+    let fillcol = 60; 
+    fill(150, 210, 150, button); 
+    stroke(150, 210, 150, button); 
+    strokeWeight(1); 
     triangle(0, 0, px1, py1, px2, py2); /* Noi that la em cung khong nho em viet cai gi vao day nua */
   }
   fill(150, 190, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
@@ -460,162 +457,172 @@ function draw() {
             if (isclipped[i] < 10) continue; /* Noi that la em cung khong nho em viet cai gi vao day nua */
             if (getdist(pos[i][0], pos[i][1], mouseX, mouseY) <= size - 10) {
               if (isclipped[i] != 10) {
-                unclip(isclipped[i]); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                clipped[isclipped[i]] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                isclipped[i] = 10; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                clipcnt--; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+                unclip(isclipped[i]); 
+                clipped[isclipped[i]] = 0; 
+                isclipped[i] = 10; 
+                clipcnt--; 
               }
-              notchosenyet = false; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              theone = i; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              ddx = mouseX - pos[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              ddy = mouseY - pos[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              yolo = true; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              break; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              notchosenyet = false; 
+              theone = i; 
+              ddx = mouseX - pos[i][0]; 
+              ddy = mouseY - pos[i][1]; 
+              yolo = true; 
+              break; 
             }
           }
           if (!yolo)
-            for (let i = 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i >= 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i--) {
+            for (let i = 6;  i >= 0;  i--) {
               if (getdist(pos[i][0], pos[i][1], mouseX, mouseY) <= size - 10) {
                 if (isclipped[i] != 10) {
-                  unclip(isclipped[i]); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                  clipped[isclipped[i]] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                  isclipped[i] = 10; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                  clipcnt--; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+                  unclip(isclipped[i]); 
+                  clipped[isclipped[i]] = 0; 
+                  isclipped[i] = 10; 
+                  clipcnt--; 
                 }
-                notchosenyet = false; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                theone = i; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                ddx = mouseX - pos[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                ddy = mouseY - pos[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-                break; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+                notchosenyet = false; 
+                theone = i; 
+                ddx = mouseX - pos[i][0]; 
+                ddy = mouseY - pos[i][1]; 
+                break; 
               }
             }
         }
       }
     } else {
       if (!notpressedyet) {
-        notpressedyet = true; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        notpressedyet = true; 
         if (!notchosenyet) {
-          notchosenyet = true; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          speed[theone][0] = pos[theone][0] - last[theone][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          speed[theone][1] = pos[theone][1] - last[theone][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          speed[theone][0] /= 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          speed[theone][1] /= 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          notchosenyet = true; 
+          speed[theone][0] = pos[theone][0] - last[theone][0]; 
+          speed[theone][1] = pos[theone][1] - last[theone][1]; 
+          speed[theone][0] /= 2; 
+          speed[theone][1] /= 2; 
           if (dist(px, py, pos[theone][0], pos[theone][1]) < 20 && !clipped[0]) {
-            clipped[0] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            isclipped[theone] = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            pos[theone][0] = px; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            pos[theone][1] = py; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            clip(theone, 0); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            clipcnt++; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+            clipped[0] = 1; 
+            isclipped[theone] = 0; 
+            pos[theone][0] = px; 
+            pos[theone][1] = py; 
+            clip(theone, 0); 
+            clipcnt++; 
           }
-          for (let i = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-            let abcd = 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          for (let i = 1;  i <= 6;  i++) {
+            let abcd = 5; 
             let px1 = px + (size - abcd) * cos(-PI / 2 - PI / 3 + PI / 3 * i) * 2,
-              py1 = py + (size - abcd) * sin(-PI / 2 - PI / 3 + PI / 3 * i) * 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              py1 = py + (size - abcd) * sin(-PI / 2 - PI / 3 + PI / 3 * i) * 2; 
             if (dist(px1, py1, pos[theone][0], pos[theone][1]) < 20 && !clipped[i]) {
-              clipped[i] = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              isclipped[theone] = i; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              pos[theone][0] = px1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              pos[theone][1] = py1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              clip(theone, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              clipcnt++; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              clipped[i] = 1; 
+              isclipped[theone] = i; 
+              pos[theone][0] = px1; 
+              pos[theone][1] = py1; 
+              clip(theone, i); 
+              clipcnt++; 
             }
           }
         }
-        theone = 1000; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        theone = 1000; 
       }
     } {
-      for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
-        last[i][0] = pos[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-        last[i][1] = pos[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+      for (let i = 0;  i <= 6;  i++) {
+        last[i][0] = pos[i][0]; 
+        last[i][1] = pos[i][1]; 
         if (i == theone) {
-          pos[i][0] = mouseX - ddx; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          pos[i][1] = mouseY - ddy; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          shadow(mouseX - ddx + 5, mouseY - ddy + 10); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          hexanoi(mouseX - ddx - 3, mouseY - ddy - 3, 20, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          pos[i][0] = mouseX - ddx; 
+          pos[i][1] = mouseY - ddy; 
+          shadow(mouseX - ddx + 5, mouseY - ddy + 10); 
+          hexanoi(mouseX - ddx - 3, mouseY - ddy - 3, 20, i); 
         } else {
           if (pos[i][0] < size || pos[i][0] > canvassize - size) {
-            speed[i][0] *= 3 / 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            speed[i][1] *= 3 / 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+            speed[i][0] *= 3 / 5; 
+            speed[i][1] *= 3 / 5; 
             if (pos[i][0] < size) {
-              pos[i][0] = size; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              speed[i][0] = -speed[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              pos[i][0] = size; 
+              speed[i][0] = -speed[i][0]; 
             } else {
-              pos[i][0] = canvassize - size; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              speed[i][0] = -speed[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              pos[i][0] = canvassize - size; 
+              speed[i][0] = -speed[i][0]; 
             }
           }
-          pos[i][0] += speed[i][0]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          pos[i][0] += speed[i][0]; 
           if (pos[i][1] < size * sqrt(3) / 2 || pos[i][1] > canvassize - size * sqrt(3) / 2) {
-            speed[i][0] *= 3 / 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-            speed[i][1] *= 3 / 5; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+            speed[i][0] *= 3 / 5; 
+            speed[i][1] *= 3 / 5; 
             if (pos[i][1] < size * sqrt(3) / 2) {
-              pos[i][1] = size * sqrt(3) / 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              speed[i][1] = -speed[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              pos[i][1] = size * sqrt(3) / 2; 
+              speed[i][1] = -speed[i][1]; 
             } else {
-              pos[i][1] = canvassize - size * sqrt(3) / 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-              speed[i][1] = -speed[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+              pos[i][1] = canvassize - size * sqrt(3) / 2; 
+              speed[i][1] = -speed[i][1]; 
             }
           }
-          pos[i][1] += speed[i][1]; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          hexanoi(pos[i][0], pos[i][1], 0, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          slowdown(i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          pos[i][1] += speed[i][1]; 
+          hexanoi(pos[i][0], pos[i][1], 0, i); 
+          slowdown(i); 
         }
       }
-      for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
+      for (let i = 0;  i <= 6;  i++) {
         if (i == theone) {
-          pos[i][0] = mouseX - ddx; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          pos[i][1] = mouseY - ddy; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          shadow(mouseX - ddx + 5, mouseY - ddy + 10); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          hexanoi(mouseX - ddx - 3, mouseY - ddy - 3, 20, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          pos[i][0] = mouseX - ddx; 
+          pos[i][1] = mouseY - ddy; 
+          shadow(mouseX - ddx + 5, mouseY - ddy + 10); 
+          hexanoi(mouseX - ddx - 3, mouseY - ddy - 3, 20, i); 
         } else {
           if (isclipped[i] == 10)
-            hexanoi(pos[i][0], pos[i][1], 0, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+            hexanoi(pos[i][0], pos[i][1], 0, i); 
         }
       }
     }
-  // image(img,0,0,canvassize,canvassize); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+  // image(img,0,0,canvassize,canvassize); 
   if (check() > 0 && clipcnt == 7) {
-    playtime--; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    let totaltime = playtime / 60; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    button += jump * 2; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    if (button >= 250) button = 250; /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(150, 220, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    rect(-10, -10, 610, 610); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    push(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    fill(150, 200, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    stroke(150, 200, 150, button); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    textAlign(CENTER); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    textSize(50); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    strokeWeight(3); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    if (won) text(floor(totaltime / 60) + "m " + floor(totaltime % 60) + "s ", 300, 200); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    pop(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-    for (let i = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i <= 6; /* Noi that la em cung khong nho em viet cai gi vao day nua */ i++) {
+    playtime--; 
+    let totaltime = playtime / 60; 
+    button += jump * 2; 
+    if (button >= 250) button = 250; 
+    fill(150, 220, 150, button); 
+    rect(-10, -10, 610, 610); 
+    push(); 
+    fill(150, 200, 150, button); 
+    stroke(150, 200, 150, button); 
+    textAlign(CENTER); 
+    textSize(50); 
+    strokeWeight(3); 
+    if (won) text(floor(totaltime / 60) + "m " + floor(totaltime % 60) + "s ", 300, 200); 
+    else
+    {
+      push();
+      textSize(30);
+      strokeWeight(2);
+      // loadFont('comic_sans.ttf');
+      loadFont('yes.ttf');
+      text("hexagon-thingy game",300,200);
+      pop();
+    }
+    pop(); 
+    for (let i = 0;  i <= 6;  i++) {
       if (isclipped[i] == 0) {
-        hexanoi(px, py, 0, i); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        hexanoi(px, py, 0, i); 
       }
     }
-    hexathing(0); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+    hexathing(0); 
     if (mouseIsPressed) {
       if (!alreadypressed) {
-        alreadypressed = 1; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        alreadypressed = 1; 
         if (dist(px, py, mouseX, mouseY) <= size) {
-          buttonpressed = true; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          buttonpressed = true; 
         }
       }
       if (buttonpressed) {
-        hexa(px, py); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-        hexathing(0); /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        hexa(px, py); 
+        hexathing(0); 
       }
     } else {
       if (alreadypressed) {
-        alreadypressed = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        alreadypressed = 0; 
         if (buttonpressed) {
-          initialize(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          Init(); /* Noi that la em cung khong nho em viet cai gi vao day nua */
-          button = 0; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+          initialize(); 
+          Init(); 
+          button = 0; 
         }
-        buttonpressed = false; /* Noi that la em cung khong nho em viet cai gi vao day nua */
+        buttonpressed = false; 
       }
     }
   }
